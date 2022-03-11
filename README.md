@@ -1,8 +1,8 @@
-# Description
+## Description
 
 Outline ansible playbook allows you to fast install new [outline server](https://getoutline.org/en-GB/).
 
-# Requirements
+## Requirements
 To use this playbook you should install [Ansible v5+](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) on you localhost.
 
 Install dependencies:
@@ -10,7 +10,7 @@ Install dependencies:
 $ ansible-galaxy collection install community.docker
 ```
 
-# Prepare
+## Prepare
 1. Generate new ssh key for your server
 
 ```bash
@@ -35,7 +35,7 @@ Host SERVER_IP_ADDRESS
 
 5. Run `ping.sh` script to ensure that Ansible can connect to your server.
 
-# Usage
+## Usage
 
 Your Outline host OS must be `CentOS7`.
 
@@ -51,16 +51,16 @@ $ ansible-playbook install-vpn.playbook.yaml --limit=myhost
 
 JSON output for Outline Manager saves to `configs` folder.
 
-# Utils
+## Utils
 
 `ping.sh` - tries to ping all your servers.
 
-# Known issues
+## Known issues
 
-## Disabling firewalld
+### Disabling firewalld
 Right now I disable firewalld forever because outline install script breaks it. Working on it.
 
-# Support
+## Support
 
 BTC bc1qsqr26mu57stt9m4rwe0wvawsquw8v0cmscj9xd  
 ETH 0xd3aE7C72592FE9113C85e9846b87af3c8a8460fA  
