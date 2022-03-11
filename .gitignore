@@ -1,0 +1,6 @@
+inventory/*.yaml
+inventory/*.yml
+!inventory/example.inventory.yml
+configs/*.json
+
+.DS_Store

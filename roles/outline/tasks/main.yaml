@@ -1,0 +1,38 @@
+---
+- name: Download Outline install script
+  get_url:
+    url: https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/server_manager/install_scripts/install_server.sh
+    dest: /tmp/outline-installer.sh
+    mode: 0755
+
+- name: Remove old watchtower docker container
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  community.docker.docker_container:
+    name: watchtower
+    state: absent
+
+- name: Remove old shadowbox docker container
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  community.docker.docker_container:
+    name: shadowbox
+    state: absent
+
+- name: Run Outline install script
+  command: /bin/bash /tmp/outline-installer.sh
+  register: outline_install_result
+  become: yes
+
+- name: Parse API Url and Credentials from installation output
+  set_fact:
+    outline_info: "{{ outline_install_result.stdout | regex_search('\\{[\\s\\S]*\\}') }}"
+
+- name: Save outline server info to local computer
+  local_action:
+    module: copy
+    content: "{{ outline_info }}"
+    dest: "./configs/{{inventory_hostname}}.json"
+
+- debug:
+    msg: "Outline server installation complete! Please copy the generated info stored in \"./configs/{{inventory_hostname}}.json\" and paste it in your outline manager app"

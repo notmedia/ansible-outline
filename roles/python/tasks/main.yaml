@@ -1,0 +1,6 @@
+- name: Install Python 3
+  yum:
+    name:
+      - epel-release
+      - python3
+    state: present

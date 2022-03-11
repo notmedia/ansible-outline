@@ -1,0 +1,4 @@
+- name: Install yum-utils
+  yum:
+    name: yum-utils
+    state: present
