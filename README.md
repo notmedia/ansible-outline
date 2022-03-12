@@ -1,9 +1,11 @@
 ## Description
 
-Outline ansible playbook allows you to fast install new [outline server](https://getoutline.org/en-GB/).
+Outline ansible playbook allows you to fast install new [Outline VPN](https://getoutline.org/en-GB/).
+
+[Outline Server](https://github.com/Jigsaw-Code/outline-server)
 
 ## Requirements
-To use this playbook you should install [Ansible v5+](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) on you localhost.
+To use this playbook you should install [Ansible v5+](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) on your localhost.
 
 Install dependencies:
 ```bash
